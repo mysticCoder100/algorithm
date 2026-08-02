@@ -45,6 +45,8 @@ func TestSelectionSort(t *testing.T) {
 	expectedFirst := 1
 	expectedLast := 9
 
+	SelectionSort(list)
+
 	if expectedFirst != list[0] {
 		t.Errorf("Expected first to be %d found %d.", expectedFirst, list[0])
 	}
