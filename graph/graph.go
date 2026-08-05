@@ -16,11 +16,11 @@ var MyGraph map[string][]string = map[string][]string{
 }
 
 func Perform(item []string) bool {
-	queue := MyQueue{items: item}
+	queue := MyQueue[string]{items: item}
 	searched := make(map[string]bool)
 	searched["you"] = true
 
-	for !queue.isEmpty() {
+	for !queue.IsEmpty() {
 		item, err := queue.Dequeue()
 
 		if err != nil {

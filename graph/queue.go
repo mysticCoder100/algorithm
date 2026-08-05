@@ -2,25 +2,27 @@ package graph
 
 import "errors"
 
-type MyQueue struct {
-	items []string
+type MyQueue[T any] struct {
+	items []T
 }
 
-func (q *MyQueue) Enqueue(item string) {
+func (q *MyQueue[T]) Enqueue(item T) {
 	q.items = append(q.items, item)
 }
 
-func (q *MyQueue) Dequeue() (string, error) {
-	if q.isEmpty() {
-		return "", errors.New("The queue is empty")
+func (q *MyQueue[T]) Dequeue() (T, error) {
+	var zero T
+
+	if q.IsEmpty() {
+		return zero, errors.New("The queue is empty")
 	}
 
 	dequeued := q.items[0]
-	q.items[0] = ""
+	q.items[0] = zero
 	q.items = q.items[1:]
 	return dequeued, nil
 }
 
-func (q *MyQueue) isEmpty() bool {
+func (q *MyQueue[T]) IsEmpty() bool {
 	return len(q.items) == 0
 }
