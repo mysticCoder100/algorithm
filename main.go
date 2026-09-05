@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	list := []int{5, 4, 3, 2, 1, 9, 8, 7}
+	list := []int{5, 4, 3, 2, 1, 9, 8, 7, 6}
 	fmt.Println(list)
-	sorting.MergeSort(list, 0, len(list)-1)
+	sorting.QuickSort(list, 0, len(list)-1)
 	fmt.Println(list)
 }
