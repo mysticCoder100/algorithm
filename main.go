@@ -8,8 +8,9 @@ import (
 
 func main() {
 	list := &list.LinkedList{}
-	list.AddHead(2)
-	list.AddHead(5)
-	list.AddHead(6)
-	fmt.Println(list.Head.Next.Next)
+	list.SortedInsertion(2)
+	list.SortedInsertion(6)
+	list.SortedInsertion(5)
+	list.SortedInsertion(1)
+	fmt.Println(list.Head.Next)
 }

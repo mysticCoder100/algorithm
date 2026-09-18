@@ -51,3 +51,22 @@ func (l *LinkedList) Print() {
 	}
 	fmt.Println()
 }
+
+func (l *LinkedList) SortedInsertion(d int) {
+	newNode := &Node{data: d}
+	curr := l.Head
+
+	if curr == nil || curr.data > d {
+		newNode.Next = curr
+		l.Head = newNode
+		return
+	}
+
+	for curr.Next != nil && curr.Next.data < d {
+		curr = curr.Next
+	}
+
+	newNode.Next = curr.Next
+	curr.Next = newNode
+
+}
